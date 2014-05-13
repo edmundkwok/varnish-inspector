@@ -13,6 +13,8 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
     for (var i = 0; i < headers.length; i++) {
       var header = headers[i];
       if (header.name === 'Via' && header.value.indexOf('varnish')) {
+        // Only set the popup if page is cached via Varnish. Somehow the tabId will
+        // only available after some delay.
         setTimeout(function(){
           chrome.browserAction.setPopup({
           tabId: details.tabId,
