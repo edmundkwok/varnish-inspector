@@ -13,6 +13,12 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
     for (var i = 0; i < headers.length; i++) {
       var header = headers[i];
       if (header.name === 'Via' && header.value.indexOf('varnish')) {
+        setTimeout(function(){
+          chrome.browserAction.setPopup({
+          tabId: details.tabId,
+          popup: 'status.html'
+        });
+        }, 1000);
         buttons[details.tabId].active = true;
       }
       if (header.name === 'X-Varnish-Cache') {
