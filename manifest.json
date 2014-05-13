@@ -1,5 +1,5 @@
 {
-  "description": "A simple Google Chrome extension that shows if a page being served up via a Varnish web accelerator is fresh or not.",
+  "description": "Check if a page is getting cached by Varnish and clear the cache of the current page with a click.",
   "background": {
     "scripts": [
       "background.js"
@@ -14,8 +14,9 @@
     "128": "img/icon_large.png"
   },
   "manifest_version": 2,
-  "name": "Varnish Indicator (forked, improved)",
+  "name": "iMoney Varnish Bot",
   "permissions": [
+    "tabs",
     "webRequest",
     "webNavigation",
     "http://*/*",
