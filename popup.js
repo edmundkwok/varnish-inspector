@@ -1,6 +1,7 @@
 chrome.tabs.getSelected(function(tab) {
     var url = tab.url;
 
+    // Inspired from https://gist.github.com/mshmsh5000/7450623.
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open('PURGE', url, true);
     xmlHttp.setRequestHeader("X-Purge-Key", "MYSUPERSECRETKEY");
