@@ -15,14 +15,14 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
       if (header.name === 'Via' && header.value.indexOf('varnish')) {
         buttons[details.tabId].active = true;
       }
-      if (header.name === 'X-Cache') {
+      if (header.name === 'X-Varnish-Cache') {
         if (header.value.indexOf('HIT') !== -1) {
             buttons[details.tabId].status = 'hit';
         } else if (header.value.indexOf('MISS') !== -1) {
             buttons[details.tabId].status = 'miss';
         }
       }
-      if(header.name === 'X-Cache-Hits') {
+      if(header.name === 'X-Varnish-Hits') {
         buttons[details.tabId].hits =  header.value;
       }
     }
