@@ -36,11 +36,11 @@ The label text is updated to reflect the number of cache hits if the HTTP header
 
 The current page cache can be cleared (i.e. purged / banned) by clicking on the extension icon.
 
-You either will see this:
+If the page is cached:
 
 ![Cache cleared](https://raw.github.com/edmundkwok/varnish-inspector/master/img/screenshot_cache_cleared.png)
 
-Or this:
+Or if it is not:
 
 ![Page not in cache](https://raw.github.com/edmundkwok/varnish-inspector/master/img/screenshot_cache_404.png)
 
