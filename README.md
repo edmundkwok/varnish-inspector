@@ -59,7 +59,7 @@ This is is set in the following files:
 7 xmlHttp.setRequestHeader("X-Purge-Key", "MYSUPERSECRETKEY");
 ```
 
-Replace MYSUPERSECRETKEY with your secrety key.
+Replace MYSUPERSECRETKEY with your secret key.
 
 Example:
 
@@ -69,7 +69,7 @@ Example:
 
 ### Varnish VCL
 
-If you're following the official Varnish [Purge and banning](https://www.varnish-cache.org/docs/3.0/tutorial/purging.html) configuration, add another expression to check if your secrety key is passed along with the request. You can combine this with any other expressions.
+If you're following the official Varnish [Purge and banning](https://www.varnish-cache.org/docs/3.0/tutorial/purging.html) configuration, add another expression to check if your secret key is passed along with the request. You can combine this with any other expressions.
 
 ```bash
 if (req.request == "PURGE") {
@@ -80,7 +80,7 @@ if (req.request == "PURGE") {
 }
 ```
 
-Replace MYSUPERSECRETKEY with your secrety key.
+Replace MYSUPERSECRETKEY with your secret key.
 
 Example:
 
