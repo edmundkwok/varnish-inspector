@@ -5,7 +5,7 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
     buttons[details.tabId] = {
       'active': false,
       'status': null,
-      'hits':   null
+      'hits':   'N/A'
     };
   }
   if (details.type === 'main_frame') {
