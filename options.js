@@ -34,6 +34,8 @@ $(document).ready(function(){
   $('#varnish-ban').submit(function(e){
     e.preventDefault();
 
+    hosts = [];
+
     $('tbody tr').each(function(){
       var host = $(this).find('.ban-host').val();
       var label = $(this).find('.ban-label').val();
