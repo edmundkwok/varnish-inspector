@@ -13,15 +13,17 @@
     "48":  "img/icon_medium.png",
     "128": "img/icon_large.png"
   },
+  "options_page": "options.html",
   "manifest_version": 2,
   "name": "iMoney Varnish Bot",
   "permissions": [
     "tabs",
     "webRequest",
+    "storage",
     "webNavigation",
     "http://*/*",
     "https://*/*"
   ],
   "minimum_chrome_version": "17",
-  "version": "1.1.0"
+  "version": "2.0.0"
 }
