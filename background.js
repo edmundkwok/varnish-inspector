@@ -12,7 +12,10 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
     var headers = details.responseHeaders;
     for (var i = 0; i < headers.length; i++) {
       var header = headers[i];
-      if (header.name === 'Via' && header.value.indexOf('varnish')) {
+      header.name = header.name.toLowerCase();
+      header.value = header.value.toLowerCase();
+
+      if (header.name === 'via' && header.value.indexOf('varnish')) {
         // Only set the popup if page is cached via Varnish. Somehow the tabId will
         // only available after some delay.
         setTimeout(function(){
@@ -23,14 +26,14 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
         }, 1000);
         buttons[details.tabId].active = true;
       }
-      if (header.name === 'X-Varnish-Cache') {
-        if (header.value.indexOf('HIT') !== -1) {
+      if (header.name === 'x-varnish-cache') {
+        if (header.value.indexOf('hit') !== -1) {
             buttons[details.tabId].status = 'hit';
-        } else if (header.value.indexOf('MISS') !== -1) {
+        } else if (header.value.indexOf('miss') !== -1) {
             buttons[details.tabId].status = 'miss';
         }
       }
-      if(header.name === 'X-Varnish-Hits') {
+      if(header.name === 'x-varnish-hits') {
         buttons[details.tabId].hits =  header.value;
       }
     }
