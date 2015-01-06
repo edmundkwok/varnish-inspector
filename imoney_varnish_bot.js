@@ -5,7 +5,7 @@ $(document).ready(function(){
   chrome.storage.sync.get({
     hosts: []
   }, function(options){
-    var $checkbox = $('<div class="checkbox"><label><input type="checkbox" name="country[]"></input></label></div>');
+    var $checkbox = $('<div class="checkbox"><label><input type="checkbox" name="host[]"></input></label></div>');
     console.log(options);
     if (options.hosts.length) {
       for (var index in options.hosts) {
@@ -23,7 +23,7 @@ $(document).ready(function(){
   $('#varnish-ban').submit(function(e){
     e.preventDefault();
 
-    $('input[name*=country]:checked').each(function(){
+    $('input[name*=host]:checked').each(function(){
 
       var host = $(this).val();
       var operator = $('#operator').val();
@@ -55,7 +55,7 @@ $(document).ready(function(){
     });
   });
 
-  $(document).on('change', 'input[name*=country]', function(){
+  $(document).on('change', 'input[name*=host]', function(){
     validateInput();
   });
 
@@ -69,7 +69,7 @@ $(document).ready(function(){
   });
 
   function validateInput() {
-    if ($('input[name*=country]:checked').length) {
+    if ($('input[name*=host]:checked').length) {
       $('#submit').removeAttr('disabled');
       return true;
     }
