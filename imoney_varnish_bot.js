@@ -6,7 +6,6 @@ $(document).ready(function(){
     hosts: []
   }, function(options){
     var $checkbox = $('<div class="checkbox"><label><input type="checkbox" name="host[]"></input></label></div>');
-    console.log(options);
     if (options.hosts.length) {
       for (var index in options.hosts) {
         var $checkboxCopy = $checkbox.clone();
@@ -15,8 +14,11 @@ $(document).ready(function(){
 
         $checkboxCopy.find('input').attr('value', host);
         $checkboxCopy.find('label').append(label);
-        $checkboxCopy.appendTo('#checkbox-wrapper');
+        $checkboxCopy.prependTo('#checkbox-wrapper');
       }
+    }
+    else {
+      $('#add-host').show();
     }
   });
 
